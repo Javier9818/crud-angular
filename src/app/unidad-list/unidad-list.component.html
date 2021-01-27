@@ -1,0 +1,35 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div>
+    <h3 class="mb-3 text-center">Categorias</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoria of Categorias">
+            <td>{{categoria.id}}</td>
+            <td>{{categoria.descripcion}}</td>
+            <td>
+              <span class="edit" routerLink="/unidad-edit/{{categoria.id}}">Editar</span>
+              <span class="delete" (click)="delete(categoria.id)">Eliminar</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create-categoria">Nueva categoria</a>
+    </div>
+
+  </div>
+
+</div>

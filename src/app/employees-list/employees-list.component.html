@@ -1,0 +1,46 @@
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no employee -->
+  <div class="no-data text-center" *ngIf="Employee.length == 0">
+    <p>There is no employee added yet!</p>
+    <button class="btn btn-outline-primary" routerLink="/create-employee">Agregar producto</button>
+  </div>
+
+  <!-- Employees list table, it hides when there is no employee -->
+  <div *ngIf="Employee.length !== 0">
+    <h3 class="mb-3 text-center">Productos</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Unidad</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of Employee">
+            <td>{{employee.id}}</td>
+            <td>{{employee.descripcion}}</td>
+            <td>{{employee.precio}}</td>
+            <td>{{employee.cantidad}}</td>
+            <td>{{employee.categoria}}</td>
+            <td>{{employee.unidad}}</td>
+            <td>
+              <span class="edit" routerLink="/employee-edit/{{employee.id}}">Editar</span>
+              <span class="delete" (click)="deleteEmployee(employee.id)">Eliminar</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create-employee">Nuevo producto</a>
+    </div>
+
+  </div>
+
+</div>
